@@ -12,3 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index');
+
+Route::group(['prefix' => 'restaurants', 'namespace' => 'Res'], function () {
+    Route::get('{restaurant}', 'Restaurant\HomeController@index');
+});
