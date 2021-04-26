@@ -8,6 +8,7 @@
     <title>Digital Menu</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/tailwind.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
 </head>
 
