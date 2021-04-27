@@ -10,6 +10,6 @@ class HomeController extends Controller
 {
     public function index(Restaurant $restaurant)
     {
-        return view('restaurant.home', compact('restaurant'));
+        return view('restaurant.pages.home', compact('restaurant'));
     }
 }

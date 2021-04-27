@@ -15,6 +15,8 @@
 </head>
 
 <body class="bg-green-200">
+    <div class="absolute h-screen w-screen z-50" data-toggle="modal" data-target="#startOrderModal"></div>
+
     <main class="text-center">
         <h4 class="inline-block mt-60 border-2 font-medium p-2 border-green-800 text-5xl text-green-800">MENU</h4>
     </main>
@@ -27,7 +29,7 @@
 
         <div class="start-button absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t">
             <div class=""></div>
-            <a href="#" data-toggle="modal" data-target="#startOrderModal" class="text-xl hover:no-underline text-white">Klik untuk memulai</a>
+            <a href="#" class="text-xl hover:no-underline text-white">Klik untuk memulai</a>
         </div>
     </div>
 
@@ -35,7 +37,11 @@
         <div class="modal-dialog mt-60">
             <div class="modal-content">
                 <div class="modal-body">
-                    <p class="mb-2 text-center text-lg">Silahkan masukkan nomor meja terlebih dahulu</p>
+                    <p class="mb-2 text-center text-lg">Silahkan masukkan nama anda dan nomor meja untuk mulai memesan</p>
+
+                    <div class="form-group m-0 mb-3">
+                        <input type="text" name="customer_name" placeholder="Nama Anda" class="p-2 rounded text-xl w-full text-center border-2 border-green-400 focus:outline-none" autocomplete="off">
+                    </div>
 
                     <div class="form-group m-0 mb-3">
                         <input type="text" name="table" placeholder="Nomor Meja" class="p-2 rounded text-xl w-full text-center border-2 border-green-400 focus:outline-none">
