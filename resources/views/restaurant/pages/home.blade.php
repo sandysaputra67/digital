@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Menu</title>
+    <meta name="description" content="{{ $restaurant->description }}">
+
+    <title>{{ $restaurant->name }}</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/tailwind.css') }}">
@@ -19,7 +21,7 @@
 
     <div class="footer w-full block absolute bottom-0 text-center">
         <div class="resto-name mb-24">
-            <h4 class="text-center text-3xl text-green-800 mb-2 font-medium">Nama Rumah Makan</h4>
+            <h4 class="text-center text-3xl text-green-800 mb-2 font-medium">{{ $restaurant->name }}</h4>
             <hr class="bg-green-800 mx-auto w-28 text-center" />
         </div>
 
@@ -29,7 +31,7 @@
         </div>
     </div>
 
-    <div class="modal fade" data-backdrop="static" data-keyboard="false" id="startOrderModal">
+    <div class="modal fade" data-keyboard="false" id="startOrderModal">
         <div class="modal-dialog mt-60">
             <div class="modal-content">
                 <div class="modal-body">
@@ -43,7 +45,7 @@
 
                     <p class="my-3 text-center text-gray-400 text-lg">- atau -</p>
 
-                    <a href="#" class="p-2 text-xl block text-center text-green-800 hover:text-green-800 hover:no-underline w-full rounded bg-green-200 hover:bg-green-400">LIHAT MENU</a>
+                    <a href="{{ route('restaurant.menu', $restaurant->id) }}" class="p-2 text-xl block text-center text-green-800 hover:text-green-800 hover:no-underline w-full rounded bg-green-200 hover:bg-green-400">LIHAT MENU</a>
                 </div>
             </div>
         </div>

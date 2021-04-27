@@ -11,8 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
-
-Route::group(['prefix' => 'restaurants', 'namespace' => 'Res'], function () {
-    Route::get('{restaurant}', 'Restaurant\HomeController@index');
+Route::group(['prefix' => 'restaurants', 'namespace' => 'Restaurant'], function () {
+    Route::get('{restaurant}', 'HomeController@index')->name('restaurant.home');
+    Route::get('{restaurant}/menu', 'MenuController@index')->name('restaurant.menu');
 });
