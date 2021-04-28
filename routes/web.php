@@ -17,4 +17,8 @@ Route::group(['prefix' => 'restaurants', 'namespace' => 'Restaurant'], function 
     Route::get('{restaurant}/show-qr', 'QrController@show')->name('restaurant.show-qr');
     Route::get('{restaurant}/menus', 'MenuController@index')->name('restaurant.menu');
     Route::get('{restaurant}/menus/{menu}', 'MenuController@show')->name('restaurant.menu.show');
+
+    Route::group(['prefix' => '{restaurant}/cart'], function() {
+        Route::get('/index', 'CartController@index')->name('cart.index');
+    });
 });
