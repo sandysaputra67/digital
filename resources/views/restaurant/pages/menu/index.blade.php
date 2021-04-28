@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+<div class="absolute w-screen h-screen top-0 left-0 -z-10 bg-green-300"></div>
+
 <div class="p-2">
     <div class="category-1">
         <p class="text-xl mb-2 px-2 font-medium">Appetizer</p>

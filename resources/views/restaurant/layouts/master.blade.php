@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/tailwind.css') }}">
 </head>
 
-<body class="bg-green-300">
+<body class="bg-transparent">
     <header>
         @yield('header')
     </header>
