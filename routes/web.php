@@ -13,5 +13,6 @@
 
 Route::group(['prefix' => 'restaurants', 'namespace' => 'Restaurant'], function () {
     Route::get('{restaurant}', 'HomeController@index')->name('restaurant.home');
-    Route::get('{restaurant}/menu', 'MenuController@index')->name('restaurant.menu');
+    Route::get('{restaurant}/menus', 'MenuController@index')->name('restaurant.menu');
+    Route::get('{restaurant}/menus/{menu}', 'MenuController@show')->name('restaurant.menu.show');
 });

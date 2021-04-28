@@ -1,4 +1,4 @@
-<div>
+<a href="{{ route('restaurant.menu.show', ['restaurant' => $restaurant->id, 'menu' => 1]) }}">
     <img src="http://via.placeholder.com/640x360" class="rounded-t" alt="Menu Image" />
 
     <div class="bg-white p-2 rounded-b w-full">
@@ -42,4 +42,4 @@
             </div>
         </div>
     </div>
-</div>
+</a>
