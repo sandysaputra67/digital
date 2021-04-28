@@ -13,13 +13,7 @@
 </head>
 
 <body class="bg-transparent">
-    <header>
-        @yield('header')
-    </header>
-
-    <main>
-        @yield('content')
-    </main>
+    @yield('content')
 </body>
 
 </html>
