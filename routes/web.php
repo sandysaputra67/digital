@@ -18,7 +18,12 @@ Route::group(['prefix' => 'restaurants', 'namespace' => 'Restaurant'], function 
     Route::get('{restaurant}/menus', 'MenuController@index')->name('restaurant.menu');
     Route::get('{restaurant}/menus/{menu}', 'MenuController@show')->name('restaurant.menu.show');
 
-    Route::group(['prefix' => '{restaurant}/cart'], function() {
+    Route::group(['prefix' => '{restaurant}/table'], function () {
+        Route::post('/findTable', 'TableController@findTable')->name('table.findTable');
+        Route::post('/reservation', 'TableController@reservation')->name('table.reservation');
+    });
+
+    Route::group(['prefix' => '{restaurant}/cart'], function () {
         Route::get('/index', 'CartController@index')->name('cart.index');
     });
 });
