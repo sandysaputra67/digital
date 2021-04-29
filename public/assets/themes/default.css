@@ -15,4 +15,15 @@
     --menu-card-border: #9ca3af;
     --menu-card-text: #9ca3af;
     --menu-card-text-darker: #111827;
+
+    --header-icon-color: #1f2937;
+
+    --searchbar-text: #6b7280;
+    --searchbar-input-text: #111827;
+
+    --header-background: #6ee7b7;
+}
+
+.menu-page {
+    background: var(--theme-primary-lightest);
 }
