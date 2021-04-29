@@ -11,6 +11,19 @@ module.exports = {
                 '-10': '-10'
             }
         },
+        colors: {
+            transparent: 'transparent',
+            current: 'currentColor',
+            'theme-primary': {
+                darkest: 'var(--theme-primary-darkest)',
+                darker: 'var(--theme-primary-darker)',
+                dark: 'var(--theme-primary-dark)',
+                DEFAULT: 'var(--theme-primary)',
+                light: 'var(--theme-primary-light)',
+                lighter: 'var(--theme-primary-lighter)',
+                lightest: 'var(--theme-primary-lightest)',
+            }
+        }
     },
     variants: {
         extend: {},
