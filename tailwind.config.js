@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
     purge: [
         './resources/**/*.blade.php',
@@ -14,6 +16,7 @@ module.exports = {
         colors: {
             transparent: 'transparent',
             current: 'currentColor',
+            white: colors.white,
             'theme-primary': {
                 darkest: 'var(--theme-primary-darkest)',
                 darker: 'var(--theme-primary-darker)',

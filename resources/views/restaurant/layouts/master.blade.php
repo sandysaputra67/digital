@@ -10,8 +10,8 @@
 
     <title>{{ $restaurant->name }} - Daftar Menu</title>
 
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/tailwind.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/themes/default.css') }}">
 </head>
 
 <body class="bg-transparent">

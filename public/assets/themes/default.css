@@ -1,0 +1,18 @@
+:root {
+    --theme-primary: #34d399;
+
+    --theme-primary-light: #6ee7b7;
+    --theme-primary-lighter: #a7f3d0;
+    --theme-primary-lightest: #d1fae5;
+
+    --theme-primary-dark: #10b981;
+    --theme-primary-darker: #059669;
+    --theme-primary-darkest: #047857;
+
+    --theme-primary-background: #fff;
+
+    --menu-card-background: #fff;
+    --menu-card-border: #9ca3af;
+    --menu-card-text: #9ca3af;
+    --menu-card-text-darker: #111827;
+}

@@ -11,11 +11,11 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/assets/js').extract(['vue']);
+mix.js('resources/assets/js/app.js', 'public/assets/js').extract(['vue']);
 
-mix.sass('resources/sass/app.scss', 'public/assets/css');
+mix.sass('resources/assets/sass/app.scss', 'public/assets/css');
 
-mix.postCss('resources/css/tailwind.css', 'public/assets/css', [
+mix.postCss('resources/assets/css/tailwind.css', 'public/assets/css', [
     require("tailwindcss"),
 ]);
 
