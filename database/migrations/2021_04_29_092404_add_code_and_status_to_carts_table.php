@@ -15,8 +15,11 @@ class AddCodeAndStatusToCartsTable extends Migration
     {
         Schema::table('carts', function (Blueprint $table) {
             $table->string('code')->nullable()->after('customer_name');
-            $table->string('status')->nullable()->after('code');
-            $table->string('parent_id')->nullable()->after('status');
+            $table->integer('parent_id')->unsigned()->nullable()->after('code');
+            $table->string('total_items')->nullable()->after('parent_id');
+            $table->decimal('grand_total', 12, 4)->default(0)->after('total_items');
+            $table->decimal('discount_amount', 12, 4)->default(0)->after('grand_total');
+            $table->string('status')->nullable()->after('discount_amount');
         });
     }
 
@@ -29,8 +32,11 @@ class AddCodeAndStatusToCartsTable extends Migration
     {
         Schema::table('carts', function (Blueprint $table) {
             $table->dropColumn('code');
-            $table->dropColumn('status');
             $table->dropColumn('parent_id');
+            $table->dropColumn('total_items');
+            $table->dropColumn('grand_total');
+            $table->dropColumn('discount_amount');
+            $table->dropColumn('status');
         });
     }
 }

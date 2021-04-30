@@ -41,28 +41,4 @@ class TableController extends Controller
             'table_id' => $table->id
         ]);
     }
-
-    public function reservation(Restaurant $restaurant)
-    {
-        $table_id = request('table_id');
-        $customer_name = request('customer_name');
-
-        $code = sha1("{$restaurant->id}.{$table_id}.{$customer_name}.{now()->timestamp()}");
-        $status = 'active';
-
-        $reservation = Cart::insert([
-            'restaurant_id' => $restaurant->id,
-            'table_id' => $table_id,
-            'customer_name' => $customer_name,
-            'code' => $code,
-            'status' => $status
-        ]);
-
-        if ($reservation) {
-            return response()->json([
-                'status' => 'OK',
-                'message' => 'Meja sudah anda pesan.'
-            ]);
-        }
-    }
 }

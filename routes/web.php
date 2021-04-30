@@ -20,10 +20,10 @@ Route::group(['prefix' => 'restaurants', 'namespace' => 'Restaurant'], function 
 
     Route::group(['prefix' => '{restaurant}/table'], function () {
         Route::post('/findTable', 'TableController@findTable')->name('table.findTable');
-        Route::post('/reservation', 'TableController@reservation')->name('table.reservation');
     });
 
     Route::group(['prefix' => '{restaurant}/cart'], function () {
         Route::get('/index', 'CartController@index')->name('cart.index');
+        Route::post('/reservation', 'CartController@reservation')->name('cart.reservation');
     });
 });

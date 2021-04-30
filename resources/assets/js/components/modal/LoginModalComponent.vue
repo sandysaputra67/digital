@@ -62,7 +62,7 @@
 
 <script>
 export default {
-  props: { url: String, restaurant_id: Number },
+  props: { restaurant_id: Number },
 
   data: function () {
     return {
@@ -105,11 +105,11 @@ export default {
         customer_name: this.customer_name,
       };
 
-      const url = "/restaurants/" + this.restaurant_id + "/table/reservation";
+      const url = "/restaurants/" + this.restaurant_id + "/cart/reservation";
 
       axios.post(url, data).then((response) => {
         if (response.data.status == "OK") {
-          window.open();
+          window.location.href = response.data.url;
         }
       });
     },
