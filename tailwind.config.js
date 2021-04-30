@@ -17,6 +17,8 @@ module.exports = {
             transparent: 'transparent',
             current: 'currentColor',
             white: colors.white,
+            black: colors.black,
+            gray: colors.coolGray,
             'theme-primary': {
                 darkest: 'var(--theme-primary-darkest)',
                 darker: 'var(--theme-primary-darker)',
