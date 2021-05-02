@@ -33,7 +33,6 @@ class AddCodeAndStatusToCartsTable extends Migration
         Schema::table('carts', function (Blueprint $table) {
             $table->dropColumn('code');
             $table->dropColumn('parent_id');
-            $table->dropColumn('total_items');
             $table->dropColumn('grand_total');
             $table->dropColumn('discount_amount');
             $table->dropColumn('status');

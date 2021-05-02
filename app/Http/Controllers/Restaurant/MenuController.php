@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Restaurant;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Menu\FeaturedMenuDataResource;
+use App\Http\Resources\Menu\MenuResource;
 use App\Models\Restaurant;
 use App\Restaurant\GroupMenus;
 use App\Restaurant\Menu;
@@ -20,8 +22,24 @@ class MenuController extends Controller
         return view('restaurant.pages.menu.show', compact('restaurant', 'menu'));
     }
 
+    public function showMenuById(Restaurant $restaurant, $menu_id)
+    {
+        $menu = Menu::where([
+            'id' => $menu_id,
+            'restaurant_id' => $restaurant->id,
+        ])->first();
+
+        return MenuResource::make($menu);
+    }
+
     public function getMenus(Restaurant $restaurant)
     {
+        $data = [
+            'featured_menus' => null,
+            'menu_with_image' => null,
+            'menu_only_text' => null,
+        ];
+
         $all_menus = Menu::where([
             'restaurant_id' => $restaurant->id
         ])->get();
@@ -31,23 +49,28 @@ class MenuController extends Controller
             'main' => true
         ])->first();
 
+        $menu_with_image = $all_menus->whereNotNull('image')->where('status', 'menu');
+
+        $menu_only_text = $all_menus->whereNull('image')->where('status', 'menu')->all();
+
         if ($group_menus) {
-            $featured_menu = $all_menus->where('group_id', $group_menus->id)->get();
+            $data['featured_menus'] = [
+                'featured_data' => FeaturedMenuDataResource::make($group_menus),
+                'menus' => MenuResource::collection($all_menus->where('group_id', $group_menus->id))
+            ];
         }
 
-        $menu_with_image = $all_menus->whereNotNull('image',)->get();
+        if ($menu_with_image) {
+            $data['menu_with_image'] = MenuResource::collection($menu_with_image);
+        }
 
-        $menu_only_text = $all_menus->whereNull('image',)->get();
-
-        $data = [
-            'featured_menus' => $featured_menu,
-            'menu_with_image' => $menu_with_image,
-            'menu_only_text' => $menu_only_text,
-        ];
+        if ($menu_only_text) {
+            $data['menu_only_text'] = MenuResource::collection($menu_only_text);
+        }
 
         return response()->json([
             'status' => 'OK',
             'data_menu' => $data
-        ])
+        ]);
     }
 }

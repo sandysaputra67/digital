@@ -17,10 +17,12 @@ class CreateMenusTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('restaurant_id');
             $table->string('name');
+            $table->longText('description')->nullable();
             $table->string('status')->default('menu'); // menu, group
             $table->string('image')->nullable();
             $table->decimal('price', 12, 4)->default(0);
             $table->integer('group_id')->unsigned()->nullable();
+            $table->integer('position')->nullable();
             $table->timestamps();
         });
     }

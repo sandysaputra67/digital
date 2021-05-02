@@ -17,4 +17,9 @@ class Cart extends Model
         'discount_amount',
         'status'
     ];
+
+    public function items()
+    {
+        return $this->hasMany(CartItem::class);
+    }
 }
