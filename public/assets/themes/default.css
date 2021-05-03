@@ -1,42 +1,34 @@
 :root {
-    --theme-primary: #34d399;
-
-    --theme-primary-light: #6ee7b7;
-    --theme-primary-lighter: #a7f3d0;
-    --theme-primary-lightest: #d1fae5;
-
-    --theme-primary-dark: #10b981;
-    --theme-primary-darker: #059669;
-    --theme-primary-darkest: #047857;
-
-    --theme-primary-background: #fff;
-
-    --menu-card-background: #fff;
-    --menu-card-border: #9ca3af;
-    --menu-card-text: #9ca3af;
-    --menu-card-text-darker: #111827;
-
-    --header-icon-color: #1f2937;
-
-    --searchbar-text: #6b7280;
-    --searchbar-input-text: #111827;
-
-    --header-background: #6ee7b7;
-
-    --text-input-color: var(--theme-primary-darker, #34d399);
-
-    --button-background: var(--theme-primary);
+  --theme-primary: #34d399;
+  --theme-primary-light: #6ee7b7;
+  --theme-primary-lighter: #a7f3d0;
+  --theme-primary-lightest: #d1fae5;
+  --theme-primary-dark: #10b981;
+  --theme-primary-darker: #059669;
+  --theme-primary-darkest: #047857;
+  --theme-primary-background: #fff;
+  --menu-card-background: #fff;
+  --menu-card-border: #9ca3af;
+  --menu-card-text: #9ca3af;
+  --menu-card-text-darker: #111827;
+  --header-icon-color: #1f2937;
+  --searchbar-text: #6b7280;
+  --searchbar-input-text: #111827;
+  --header-background: #6ee7b7;
+  --text-input-color: var(--theme-primary-darker, #34d399);
+  --button-background: var(--theme-primary);
 }
 
 .menu-page {
-    background: var(--theme-primary-lightest);
+  background: var(--theme-primary-lightest);
 }
 
 button {
-    background: var(--button-background, #34d399);
+  background: var(--button-background, #34d399);
 }
 
 .qty-input {
-    --button-background: var(--theme-primary-light);
-    --button-text: #1f2937;
+  --button-background: var(--theme-primary-light);
+  --button-text: #1f2937;
 }
+

@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const fs = require('fs');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,11 +12,35 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/assets/js').extract(['vue']);
+let outputPath = 'public/assets';
 
-mix.sass('resources/assets/sass/app.scss', 'public/assets/css');
+if (mix.inProduction()) {
+    outputPath = 'resources/assets/dist';
+    mix.setPublicPath('resources/assets/dist');
+}
 
-mix.postCss('resources/assets/css/tailwind.css', 'public/assets/css', [
+if (!mix.inProduction()) {
+    mix.disableNotifications();
+}
+
+mix.js('resources/assets/src/js/app.js', `${outputPath}/js`).extract([
+    'vue',
+    'axios',
+    'lodash'
+]);
+
+mix.sass('resources/assets/src/sass/app.scss', `${outputPath}/css`);
+
+mix.postCss('resources/assets/src/css/tailwind.css', `${outputPath}/css`, [
     require("tailwindcss"),
 ]);
 
+/**
+ * Build themes
+ */
+let themesSrcDir = 'resources/assets/src/themes';
+let themesOutputDir = outputPath;
+
+fs.readdirSync(themesSrcDir).forEach(file => {
+    mix.sass(`${themesSrcDir}/${file}`, `${outputPath}/themes`);
+});

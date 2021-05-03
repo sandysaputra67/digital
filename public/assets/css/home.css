@@ -1,8 +1,0 @@
-.resto-name hr {
-    height: 3px;
-}
-
-.start-button {
-    --tw-gradient-from: rgba(0, 0, 0, 0.6);
-    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
-}

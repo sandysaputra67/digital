@@ -9,7 +9,7 @@
 }
 </style>
 <template>
-    <div v-if="menu" class="flex flex-col h-screen">
+    <div v-if="menu" class="flex flex-col h-screen menu-detail-page">
         <header-component>
             <slot name="header"></slot>
         </header-component>
