@@ -1,7 +1,7 @@
 @extends('restaurant.layouts.master')
 
 @section('content')
-    <detail-menu :restaurant="{{ $restaurant }}" :menu_id="{{ $menu->id }}">
+    <detail-menu-page :restaurant="{{ $restaurant }}" :menu_id="{{ $menu->id }}">
         <template v-slot:header>
             <div class="grid grid-cols-12">
                 <div class="col-span-9">
@@ -18,5 +18,5 @@
                 </div>
             </div>
         </template>
-    </detail-menu>
+    </detail-menu-page>
 @endsection
