@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Restaurant;
+namespace App\Models\Restaurant;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class GroupMenus extends Model
+class GroupMenu extends Model
 {
-    protected $table = 'group_menus';
 
     public function getImageUrlAttribute()
     {

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Restaurant;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Restaurant;
-use App\Restaurant\Table;
+use App\Models\Restaurant\Table;
 
 class TableController extends Controller
 {

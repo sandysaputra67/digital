@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Restaurant;
+namespace App\Models\Restaurant;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cart extends Model
+class Table extends Model
 {
     //
 }
