@@ -6,6 +6,8 @@
 /public/assets/js/app.js
 /public/assets/js/vendor.js
 /public/assets/js/manifest.js
+/public/mix-manifest.json
+/public/assets/css/tailwind.css
 /storage/*.key
 /vendor
 .env
