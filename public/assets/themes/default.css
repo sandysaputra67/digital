@@ -24,8 +24,14 @@
     --header-background: #6ee7b7;
 
     --text-input-color: var(--theme-primary-darker, #34d399);
+
+    --button-background: var(--theme-primary);
 }
 
 .menu-page {
     background: var(--theme-primary-lightest);
+}
+
+button {
+    background: var(--button-background, #34d399);
 }

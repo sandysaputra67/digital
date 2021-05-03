@@ -11,7 +11,9 @@
                 <div class="col-span-3">
                     <div class="grid grid-cols-2">
                         <header-cart-button :url="'#'"></header-cart-button>
-                        <header-scan-qr-button :url="'#'"></header-scan-qr-button>
+                        <header-scan-qr-button
+                            :url="'{{ route('restaurant.show-qr', ['restaurant' => $restaurant->id]) }}'">
+                        </header-scan-qr-button>
                     </div>
                 </div>
             </div>

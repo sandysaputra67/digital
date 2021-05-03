@@ -14,7 +14,7 @@
         >
             <button
                 type="submit"
-                class="p-1 focus:outline-none focus:shadow-outline"
+                class="p-1 focus:outline-none focus:shadow-outline bg-transparent"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
