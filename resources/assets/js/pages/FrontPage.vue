@@ -161,10 +161,9 @@ export default {
                 customer_name: this.customer_name
             };
 
-            const url = `/restaurants/${this.restaurant.id}/table/reservation`;
+            const url = `/restaurants/${this.restaurant.id}/cart/reservation`;
 
             axios.post(url, data).then(response => {
-                console.log(response);
                 if (response.data.status == "OK") {
                     window.location.href = this.menu_url;
                 }
