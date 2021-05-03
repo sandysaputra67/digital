@@ -1,21 +1,31 @@
-<template>
-    <div v-if="menu.data">
-        <main class="flex-1 overflow-y-auto">
-            <img
-                v-if="menu.data.image"
-                :src="menu.data.image"
-                alt="Menu Image"
-            />
+<style lang="scss" scoped>
+.qty-input {
+    background: var(--button-background);
 
-            <div class="px-4">
+    button {
+        background: var(--button-background);
+        color: var(--button-text);
+    }
+}
+</style>
+<template>
+    <div v-if="menu" class="flex flex-col h-screen">
+        <header-component>
+            <slot name="header"></slot>
+        </header-component>
+
+        <main class="flex-1 overflow-y-auto">
+            <img v-if="menu.image" :src="menu.image" alt="Menu Image" />
+
+            <div class="px-4 pb-4">
                 <div class="grid grid-cols-12 py-2">
                     <div class="col-span-8 grid grid-cols-12 py-2">
-                        <div class="col-span-3">
+                        <div class="col-span-3" v-if="this.menu.parent_id">
                             <div
                                 class="rounded-full w-8 h-8 border-2 border-gray-500"
                             >
                                 <p class="w-full r text-center text-gray-800">
-                                    1
+                                    {{ this.menu.parent_id }}
                                 </p>
                             </div>
                         </div>
@@ -23,7 +33,7 @@
                         <div class="col-span-9">
                             <span class="inline-block align-middle">
                                 <p class="text-2xl text-gray-800">
-                                    {{ this.menu.data.name }}
+                                    {{ this.menu.name }}
                                 </p>
                             </span>
                         </div>
@@ -32,14 +42,14 @@
                     <div class="col-span-4 py-2 text-right">
                         <span class="inline-block align-middle">
                             <p class="text-2xl text-gray-800">
-                                {{ this.menu.data.price }}
+                                {{ this.menu.price }}
                             </p>
                         </span>
                     </div>
                 </div>
 
-                <p class="text-justify font-medium text-gray-600">
-                    {{ this.menu.data.description }}
+                <p class="text-justify font-medium mb-2 text-gray-600">
+                    {{ this.menu.description }}
                 </p>
                 <textarea
                     name="notes"
@@ -52,9 +62,9 @@
             </div>
         </main>
 
-        <div class="fixed inset-x-0 bottom-0">
-            <div class="grid grid-cols-3 bg-green-200">
-                <button class="text-4xl text-gray-800" v-on:click="minus">
+        <footer>
+            <div class="grid grid-cols-3 qty-input">
+                <button class="text-4xl outline-none" v-on:click="minus">
                     -
                 </button>
                 <div class="p-2">
@@ -65,7 +75,7 @@
                         class="w-full h-full text-2xl font-bold text-center px-4 py-2 border-2 border-gray-600 focus:outline-none"
                     />
                 </div>
-                <button class="text-4xl text-gray-800" v-on:click="qty += 1">
+                <button class="text-4xl outline-none" v-on:click="qty += 1">
                     +
                 </button>
             </div>
@@ -73,26 +83,25 @@
             <div class="grid grid-cols-2">
                 <button
                     @click="goBack()"
-                    class="bg-green-300 text-2xl font-medium p-4"
+                    class="text-2xl outline-none font-medium p-4"
                 >
                     BATAL
                 </button>
                 <button
-                    class="bg-green-300 text-2xl font-medium p-4"
+                    class="text-2xl outline-none font-medium p-4"
                     v-on:click="addToCart"
                 >
                     TAMBAH
                 </button>
             </div>
-        </div>
+        </footer>
     </div>
 </template>
 <script>
 export default {
     props: {
         restaurant: Object,
-        menu_id: null,
-        url_back: { type: String, required: true }
+        menu_id: null
     },
 
     data: function() {
@@ -118,7 +127,7 @@ export default {
             const url = `/restaurants/${this.restaurant.id}/show-menu/${this.menu_id}`;
 
             axios.get(url).then(response => {
-                this.menu = response.data;
+                this.menu = response.data.data;
             });
         },
 

@@ -35,3 +35,8 @@
 button {
     background: var(--button-background, #34d399);
 }
+
+.qty-input {
+    --button-background: var(--theme-primary-light);
+    --button-text: #1f2937;
+}

@@ -1,9 +1,22 @@
 @extends('restaurant.layouts.master')
 
 @section('content')
-<div class="flex flex-col h-screen">
-    @include('restaurant.layouts.header')
+    <detail-menu :restaurant="{{ $restaurant }}" :menu_id="{{ $menu->id }}">
+        <template v-slot:header>
+            <div class="grid grid-cols-12">
+                <div class="col-span-9">
+                    <search-component></search-component>
+                </div>
 
-    <detail-menu :restaurant="{{ json_encode($restaurant) }}" :menu_id="{{$menu}}" :url_back="{{ json_encode(route('restaurant.menu', $restaurant->id)) }}"></detail-menu>
-</div>
+                <div class="col-span-3">
+                    <div class="grid grid-cols-2">
+                        <header-cart-button :url="'#'"></header-cart-button>
+                        <header-scan-qr-button
+                            :url="'{{ route('restaurant.show-qr', ['restaurant' => $restaurant->id]) }}'">
+                        </header-scan-qr-button>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </detail-menu>
 @endsection

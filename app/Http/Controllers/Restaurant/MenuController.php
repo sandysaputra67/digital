@@ -17,7 +17,7 @@ class MenuController extends Controller
         return view('restaurant.pages.menu.index', compact('restaurant'));
     }
 
-    public function show(Restaurant $restaurant, $menu)
+    public function show(Restaurant $restaurant, Menu $menu)
     {
         return view('restaurant.pages.menu.show', compact('restaurant', 'menu'));
     }
