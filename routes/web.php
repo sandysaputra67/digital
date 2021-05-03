@@ -25,7 +25,7 @@ Route::group(['prefix' => 'restaurants', 'namespace' => 'Restaurant'], function 
     });
 
     Route::group(['prefix' => '{restaurant}/cart'], function () {
-        Route::get('/index', 'CartController@index')->name('cart.index');
+        Route::get('/', 'CartController@index')->name('cart.index');
         Route::get('/get-cart', 'CartController@getCart')->name('cart.get-cart');
         Route::post('/reservation', 'CartController@reservation')->name('cart.reservation');
         Route::post('/add-to-cart', 'CartController@addToCart')->name('cart.add-to-cart');
