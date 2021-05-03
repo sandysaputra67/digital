@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\CartItem;
 use App\Models\Restaurant;
-use App\Restaurant\Menu;
+use App\Models\Restaurant\MenuCategory;
 
 class CartController extends Controller
 {
@@ -54,7 +54,7 @@ class CartController extends Controller
             'code' => session('cart_code')
         ])->first();
 
-        $menu = Menu::where([
+        $menu = MenuCategory::where([
             'id' => request('menu_id')
         ])->first();
 

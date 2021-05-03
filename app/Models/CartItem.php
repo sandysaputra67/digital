@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Restaurant\Menu;
+use App\Models\Restaurant\MenuCategory;
 use Illuminate\Database\Eloquent\Model;
 
 class CartItem extends Model
@@ -21,6 +21,6 @@ class CartItem extends Model
 
     public function menu()
     {
-        return $this->hasOne(Menu::class, 'id', 'menu_id');
+        return $this->hasOne(MenuCategory::class, 'id', 'menu_id');
     }
 }

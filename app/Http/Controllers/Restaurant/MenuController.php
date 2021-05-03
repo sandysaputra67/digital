@@ -6,9 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Menu\FeaturedMenuDataResource;
 use App\Http\Resources\Menu\MenuResource;
 use App\Models\Restaurant;
-use App\Restaurant\GroupMenus;
-use App\Restaurant\Menu;
-use Illuminate\Http\Request;
+use App\Models\Restaurant\GroupMenu;
+use App\Models\Restaurant\Menu;
 
 class MenuController extends Controller
 {
@@ -44,19 +43,19 @@ class MenuController extends Controller
             'restaurant_id' => $restaurant->id
         ])->get();
 
-        $group_menus = GroupMenus::where([
+        $group_menus = GroupMenu::where([
             'restaurant_id' => $restaurant->id,
             'main' => true
         ])->first();
 
-        $menu_with_image = $all_menus->whereNotNull('image')->where('status', 'menu');
+        $menu_with_image = $all_menus->whereNotNull('image')->sortBy('position')->where('status', 'menu');
 
-        $menu_only_text = $all_menus->whereNull('image')->where('status', 'menu')->all();
+        $menu_only_text = $all_menus->whereNull('image')->sortBy('position')->where('status', 'menu')->all();
 
         if ($group_menus) {
             $data['featured_menus'] = [
                 'featured_data' => FeaturedMenuDataResource::make($group_menus),
-                'menus' => MenuResource::collection($all_menus->where('group_id', $group_menus->id))
+                'menus' => MenuResource::collection($all_menus->sortBy('position')->where('group_id', $group_menus->id))
             ];
         }
 
